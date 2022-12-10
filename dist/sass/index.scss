@@ -1,0 +1,1483 @@
+@import './files/color';
+@import './files/fonts';
+@import './files/mixins';
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+// header start
+
+.header{
+    position: relative;
+
+    &__list{
+        display: grid;
+        grid-template-columns: 220px auto 34px;
+        grid-gap: 30px;
+        align-items:center;
+    }
+
+    &__menu{
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        grid-gap: 5px;
+        li{
+            padding: 40px 0;
+            position: relative;
+
+            .active{
+                color:$blue;
+
+                &::after {
+                    transform-origin: bottom left;
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+
+    &__logo{
+        @include fiximg(220px,65px,true);
+        img{
+            max-height: 65px;
+            max-width: 220px;
+        }
+    }
+
+    &__menu__link{
+        @include fontAll(14px,600,$link);
+        line-height: 120%;
+        text-transform: uppercase;
+        @extend%transition;
+
+        &:hover{
+            color:$title;
+        }
+
+        &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            bottom: 0;
+            left: 0;
+            background-color: $title;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 400ms;
+        }
+    }
+
+    // header language start
+
+    &__en__link{
+        @include fontAll(0.875rem,500,$blue);
+        line-height: 100%;
+        text-transform: uppercase;
+    }
+
+    &__burger__start{
+        @include fontAll(1.25rem,700,$link);
+    }
+
+    &__ru{
+        position: relative;
+        width: 30px;
+        height: 20px;
+
+        .dropdown-content{
+            display: none;
+            outline: none;
+        }
+    }
+
+    &__ru_list{
+        @include fontAll(0.875rem,400,$title);
+        line-height: 100%;
+        padding: 5px;
+    }
+
+    &__ru_none{
+        position: absolute;
+        border: 1px solid #EAEAEA;
+        z-index: 10;
+        margin-top: 5px;
+        top: 100% !important;
+        left: -20px !important;
+        width: 60px !important;
+        height: auto !important;
+        background: #fff;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.12);
+        text-align: center;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        overflow: hidden;
+        .header__en__link{
+            color:$title;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        .active{
+            width: 100%;
+            background-color:$blue;
+            a{
+                color:$fff;
+            }
+        }
+    }
+
+    &__ru_cart{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        grid-gap: 5px;
+        cursor: pointer;
+
+        span{
+            color:$link;
+        }
+    }
+
+    // header language start
+
+    &__burger__none{
+        @include fontAll(18px,400,$link);
+        line-height: 100%;
+        background-color:transparent;
+        display: none;
+    }
+}
+
+.header__menu li:hover > a::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
+.header__menu li:hover > a {
+    color:$blue;
+}
+
+// header end
+
+
+// slider start
+
+.slider{
+    position: relative;
+    width: 100%;
+
+    &__item{
+        width: 100%;
+        height: 760px !important;
+        background-repeat:no-repeat !important;
+        background-size:cover !important;
+        background-position: center center !important;
+    }
+
+    &__cart{
+        position: absolute;
+        top: 50%;
+        width: 600px;
+        transform: translate(0,-50%);
+        -o-transform: translate(0,-50%);
+        -webkit-transform: translate(0,-50%);
+        -moz-transform: translate(0,-50%);
+        -ms-transform: translate(0,-50%);
+        max-width: 1320px;
+        padding: 40px 80px 50px 0;
+
+        &::after{
+            content: "";
+            display: block;
+            width: 1000%;
+            height: 100%;
+            background-color:rgba(31, 110, 179, 0.8);
+            position: absolute;
+            top: 0;
+            left: -900%;
+            z-index: -1;
+        }
+    }
+
+    &__list{
+        .slick-arrow{
+            font-size: 0;
+            display: none !important;
+        }
+    }
+
+    &__title__h1{
+        @include fontAll(60px,700,$fff);
+        text-transform: uppercase;
+        line-height: 125%;
+        margin-bottom: 10px;
+
+        max-height: 175px;
+        -webkit-line-clamp: 2;
+        position: relative;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    &__link{
+        display: inline-block;
+        @include fontAll(12px,700,$blue);
+        line-height: 100%;
+        position: relative;
+        padding: 25px 30px;
+        background-color:$fff;
+        text-transform: uppercase;
+    }
+
+    &__text{
+        @include fontAll(18px,400,$fff);
+        line-height: 130%;
+        margin-bottom: 20px;
+
+        max-height: 234px;
+        -webkit-line-clamp: 10;
+        position: relative;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    &__btn__menu{
+        display: grid;
+        grid-template-columns: 16px 16px;
+        grid-gap: 40px;
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+
+        .next-btn{
+            width: 18px;
+            height: 35px;
+            background-color:transparent;
+            background-repeat:no-repeat;
+            background-size:contain;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='36' viewBox='0 0 20 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.75 34.493L18.4167 17.8958L1.75 1.29858' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            @extend%transition;
+
+            &:hover{
+                opacity: 0.6;
+            }
+        }
+
+        .prev-btn{
+            width: 18px;
+            height: 35px;
+            background-color:transparent;
+            background-repeat:no-repeat;
+            background-size:contain;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='36' viewBox='0 0 20 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_201_2)'%3E%3Cpath d='M18.25 1.507L1.5833 18.1042L18.25 34.7014' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_201_2'%3E%3Crect width='20' height='36' fill='white' transform='translate(20 36) rotate(-180)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+            @extend%transition;
+
+            &:hover{
+                opacity: 0.6;
+            }
+        }
+    }
+}
+
+// slider end
+
+
+// connect_with start
+
+.connect_with{
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: $blue;
+    padding: 0;
+    max-height: 70%;
+    width: 1100px;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 2px;
+    will-change: top, opacity;
+    padding: 75px 50px;
+
+    &__cart{
+        max-width: 750px;
+        margin: 0 auto;
+    }
+
+    .world_tours__title__h2{
+        color:$fff;
+    }
+
+    &__form{
+        display: flex;
+        align-items:center;
+        width: 100%;
+        flex-direction: column;
+        grid-gap: 30px;
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    &__input{
+        background-color:rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 60px;
+        padding: 10px 30px;
+        border:none;
+        outline: none;
+        @include fontAll(16px,500,$fff);
+        line-height: 130%;
+
+        &::placeholder{
+            @include fontAll(16px,500,$fff);
+            line-height: 130%;
+        }
+    }
+
+    &__textarea{
+        background-color:rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 120px;
+        resize: none;
+        padding: 10px 30px;
+        border:none;
+        outline: none;
+        @include fontAll(16px,500,$fff);
+        line-height: 130%;
+
+        &::placeholder{
+            @include fontAll(16px,500,$fff);
+            line-height: 130%;
+        }
+    }
+
+    &__button{
+        display: inline-block;
+        @include fontAll(14px,700,$blue);
+        line-height: 100%;
+        position: relative;
+        padding: 25px 30px;
+        background-color:$fff;
+        text-transform: uppercase;
+    }
+}
+
+.modal-overlay,
+.sidenav-overlay{
+    position: fixed;
+    z-index: 999;
+    top: -25%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 125%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.493);
+    display: none;
+    will-change: opacity;
+    opacity: 1 !important;
+}
+
+// connect_with end
+
+
+// World tours start
+
+.world_tours{
+    position: relative;
+    margin-bottom: 100px;
+
+    &__title__h2{
+        @include fontAll(40px,700,$blue);
+        line-height: 130%;
+    }
+
+    &__cart{
+        padding: 50px 60px 160px 60px;
+        margin-top: -60px;
+        background-color:$blue;
+        .world_tours__title__h2{
+            color:$fff;
+        }
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 45px;
+        align-items: start;
+        justify-content: space-between;
+        margin-top: 40px;
+    }
+
+    &__img{
+        position: relative;
+        @include fiximg(100%,300px,true);
+        img{
+            max-height: 300px;
+        }
+
+        &::after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0;
+            @extend%transition;
+        }
+    }
+
+    &__link{
+        @include fontAll(24px,700,$fff);
+        line-height: 120%;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        padding: 10px 15px;
+        background-color:$blue;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        min-width: max-content;
+        text-align: center;
+        display: inline-block;
+        opacity: 0;
+        z-index: -1;
+        @extend%transition;
+    }
+
+    &__title__h3{
+        @include fontAll(24px,700,$fff);
+        line-height: 130%;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        position: relative;
+        padding-left: 40px;
+        padding-top: 20px;
+
+        &::after{
+            content: "";
+            display: block;
+            width: 10px;
+            height: 100%;
+            background-color:$fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+.world_tours__item:hover > .world_tours__img a{
+    opacity: 1;
+    z-index: 10;
+} 
+
+.world_tours__item:hover > .world_tours__img::after{
+    opacity: 1;
+    z-index: 5;
+} 
+
+// World tours end
+
+
+// about start
+
+.about{
+    position: relative;
+    margin-bottom: 100px;
+
+    &__img{
+        float: right;
+        margin-left: 60px;
+        margin-bottom: 10px;
+        @include fiximg(50%,auto,true);
+        img{
+            max-height: 620px;
+            aspect-ratio: 1;
+        }
+    }
+
+    &__text{
+        @include fontAll(16px,400,$text);
+        line-height: 135%;
+        text-align: justify;
+        margin-top: 10px;
+        h1,h2,h3,h4,h5,h6,em,strong{
+            font-size: 110%;
+            color:$title;
+            font-weight: 700;
+            font-style: normal;
+            display: inline-block;
+        }
+
+        a{
+            font-size: 110%;
+            color:$title;
+            font-weight: 700;
+            font-style: normal;
+            display: inline-block;
+        }
+    }
+
+    &__link{
+        display: inline-block;
+        @include fontAll(14px,700,$blue);
+        line-height: 100%;
+        position: relative;
+        padding: 25px 30px;
+        background-color:#F3F7FC;
+        text-transform: uppercase;
+        margin-top: 20px; 
+    }
+}
+
+// about end
+
+
+// advantages start
+
+.advantages{
+    position: relative;
+    margin-bottom: 100px;
+    padding: 70px 0 90px 0;
+    background-color:#F3F7FC;
+    width: 100%;
+    height: auto;
+
+    .world_tours__title__h2{
+        text-align: center;
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+        align-items: start;
+        justify-content: space-between;
+        margin-top: 40px;
+    }
+
+    &__item{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        flex-direction: column;
+        grid-gap: 10px;
+    }
+
+    &__img{
+        @include fiximg(70px,70px,true);
+        img{
+            max-height: 70px;
+            aspect-ratio: 1;
+        }
+    }
+
+    &__title__h3{
+        @include fontAll(16px,500,$link);
+        line-height: 130%;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+// advantages end
+
+
+// uzb_tours start
+
+.uzb_tours{
+    margin-bottom: 100px;
+
+    &__list{
+        margin-top: 40px;
+
+        .owl-dots{
+            display: none;
+        }
+        
+        .owl-prev{
+            span{
+                display: none;
+            }
+
+            width: 18px;
+            background-color:transparent;
+            height: 35px;
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            left: -60px;
+            border-radius: 50px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            -ms-border-radius: 50px;
+            -o-border-radius: 50px;
+            @extend%transition;
+            transform:translate(0,-50%);
+            -webkit-transform:translate(0,-50%);
+            -moz-transform:translate(0,-50%);
+            -ms-transform:translate(0,-50%);
+            -o-transform:translate(0,-50%);
+            &::after{
+                content:'';
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                background-image: url("data:image/svg+xml,%3Csvg width='20' height='37' viewBox='0 0 20 37' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_306_2)'%3E%3Cpath d='M18.25 1.5067L1.5833 18.104L18.25 34.7012' stroke='%232E6FC8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_306_2'%3E%3Crect width='20' height='37' fill='white' transform='translate(20 37) rotate(-180)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+                background-repeat:no-repeat;
+                background-size:contain;
+            }
+
+            &:hover{
+                opacity: 0.6;
+            }
+        }
+
+        .owl-next{
+            span{
+                display: none;
+            }
+
+            width: 18px;
+            background-color:transparent;
+            height: 35px;
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            right: -60px;
+            border-radius: 50px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            -ms-border-radius: 50px;
+            -o-border-radius: 50px;
+            @extend%transition;
+            transform:translate(0,-50%);
+            -webkit-transform:translate(0,-50%);
+            -moz-transform:translate(0,-50%);
+            -ms-transform:translate(0,-50%);
+            -o-transform:translate(0,-50%);
+            &::after{
+                content:'';
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                background-image: url("data:image/svg+xml,%3Csvg width='20' height='37' viewBox='0 0 20 37' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.75 35.4933L18.4167 18.896L1.75 2.29883' stroke='%232E6FC8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                background-repeat:no-repeat;
+                background-size:contain;
+            }
+
+            &:hover{
+                opacity: 0.6;
+            }
+        }
+    }
+
+    &__img{
+        position: relative;
+        @include fiximg(100%,260px,true);
+        img{
+            max-height: 260px;
+            object-position: center center;
+        }
+
+        &::after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0;
+            @extend%transition;
+        }
+    }
+
+    &__title__h3{
+        @include fontAll(22px,700,$link);
+        line-height: 130%;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        position: relative;
+        padding-left: 40px;
+        padding-top: 20px;
+
+        &::after{
+            content: "";
+            display: block;
+            width: 10px;
+            height: 100%;
+            background-color:$blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__text{
+       position: absolute;
+       top: 0;
+       left: 0;
+       padding: 20px;
+       @include fontAll(16px,400px,$text);
+       line-height: 130%;
+       z-index: -1;
+       opacity: 0;
+       @extend%transition;
+       overflow-y: scroll;
+       height: 100%;
+    }
+
+    &__item{
+        cursor: pointer;
+    }
+}
+
+.uzb_tours__text::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.uzb_tours__text::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.uzb_tours__text::-webkit-scrollbar-thumb {
+    background: $blue;
+    height: 8px;
+    border-radius: 50px;
+}
+
+.uzb_tours__item:hover > .uzb_tours__img::after{
+    opacity: 1;
+    z-index: 5;
+}
+
+.uzb_tours__item:hover > .uzb_tours__img .uzb_tours__text{
+    opacity: 1;
+    z-index: 10;
+}
+// uzb_tours end
+
+
+// our_services start
+
+.our_services{
+    position: relative;
+    margin-bottom: 100px;
+
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px;
+        justify-content: space-between;
+        margin-top: 40px;
+        align-items:start;
+    }
+
+    &__img{
+        width: 130px;
+        height: 100%;
+        background-color:rgba(46, 111, 200, 0.06);
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        img{
+            width: 70px;
+            height: 70px;
+            object-position: center center;
+            object-fit:cover;
+            aspect-ratio: 1;
+        }
+    }
+
+    &__item{
+        display: grid;
+        grid-template-columns: 130px auto;
+        grid-gap: 30px;
+        background-color:$fff;
+        box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.12);
+        min-height: 130px;
+        align-items:center;
+
+        &:hover{
+            .our_services__title__h3{
+                color:$blue;
+            }
+        }
+    }
+
+    &__title__h3{
+        @include fontAll(24px,700,$link);
+        line-height: 130%;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        padding-right: 20px;
+        padding-bottom: 5px;
+        @extend%transition;
+    }
+
+    &__text{
+        @include fontAll(16px,500,$text);
+        line-height: 130%;
+        padding-right: 20px;
+    }
+
+    &__item__cart{
+        padding: 20px;
+    }
+}
+
+// our_services end
+
+
+// contacts start
+
+.contacts{
+    position: relative;
+    margin-bottom: -60px;
+
+    &__item{
+        padding: 55px 60px;
+        background-color:$blue;
+        width: 100%;
+        height: auto;
+    }
+
+    &__menu{
+        display: flex;
+        flex-direction: column;
+        grid-gap: 30px;
+        align-items:flex-start;
+        margin-bottom: 20px;
+    }
+
+    &__link{
+        @include fontAll(24px,700,$fff);
+        line-height: 130%;
+        display: flex;
+        grid-gap: 20px;
+        align-items:center;
+        span{
+            font-size: 30px;
+        }
+    }
+
+    &__title__h2{
+        @include fontAll(30px,700,$fff);
+        line-height: 130%;
+        text-transform: uppercase;
+    }
+
+    &__form{
+        width: 100%;
+        display: flex;
+        align-items:flex-end;
+        justify-content: end;
+        grid-gap: 20px;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    &__input{
+        background-color:rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 50px;
+        padding: 10px 30px;
+        border:none;
+        outline: none;
+        @include fontAll(16px,500,$fff);
+        line-height: 130%;
+
+        &::placeholder{
+            @include fontAll(16px,500,$fff);
+            line-height: 130%;
+        }
+    }
+
+    &__textarea{
+        background-color:rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 120px;
+        resize: none;
+        padding: 10px 30px;
+        border:none;
+        outline: none;
+        @include fontAll(16px,500,$fff);
+        line-height: 130%;
+
+        &::placeholder{
+            @include fontAll(16px,500,$fff);
+            line-height: 130%;
+        }
+    }
+
+    &__button{
+        display: inline-block;
+        @include fontAll(12px,700,$blue);
+        line-height: 100%;
+        position: relative;
+        padding: 20px 30px;
+        background-color:$fff;
+        text-transform: uppercase;
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items:flex-start;
+    }
+
+    &__map{
+        width: 100%;
+        height: 100%;
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+// contacts end
+
+// footer start
+
+.footer{
+    background-color:$fon;
+    width: 100%;
+    height: auto;
+    padding-top: 140px;
+
+    &__list{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        flex-direction: column;
+        grid-gap: 30px;
+        padding-bottom: 80px;
+    }
+
+    &__logo{
+        @include fiximg(220px,65px,true);
+        img{
+            max-height: 65px;
+            object-position: center center;
+        }
+    }
+
+    &__menu{
+        display: flex;
+        align-items:center;
+        grid-gap: 30px;
+        justify-content: center;
+    }
+
+    &__menu__link{
+        width: 44px;
+        height: 44px;
+        background-color:rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        @include fontAll(20px,400,$fff);
+        text-align: center;
+        line-height: 100%;
+
+        border-radius:50px;
+        -webkit-border-radius:50px;
+        -moz-border-radius:50px;
+        -ms-border-radius:50px;
+        -o-border-radius:50px;
+    }
+
+    &__bottom{
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    &__bottom__lits{
+        display: flex;
+        align-items:flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        grid-gap: 20px;
+        text-align: center
+    }
+
+    &__title__h4{
+        @include fontAll(16px,400,#9EADC0);
+        line-height: 130%;
+        text-align: center;
+    }
+}
+
+// footer end
+
+@media (max-width:1440px){
+    .header__cart,
+    .slider__cart,
+    .world_tours__cart,
+    .about__cart,
+    .advantages__cart,
+    .uzb_tours__cart,
+    .our_services__cart,
+    .contacts__cart,
+    .footer__cart,
+    .footer__bottom__lits{
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+
+    .header__menu__link {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:1300px){
+    .slider__item{
+        height: 700px !important;
+    }
+
+    .connect_with {
+        width: 95%;
+    }
+
+    .slider__title__h1{
+        font-size: 56px;
+    }
+
+    .world_tours__title__h2{
+        font-size: 36px;
+    }
+    
+    .slider__text {
+        font-size: 16px;
+        max-height: 208px;
+    }
+
+    .uzb_tours__title__h3{
+        font-size: 20px;
+    }
+
+    .world_tours__title__h3,
+    .contacts__link,
+    .our_services__title__h3{
+        font-size: 22px;
+    }
+
+    .uzb_tours__list .owl-next {
+        right: -40px;
+    }
+
+    .uzb_tours__list .owl-prev{
+        left: -40px;
+    }
+
+    .contacts__title__h2{
+        font-size: 26px;
+    }
+
+    .our_services__list{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contacts__item{
+        padding: 50px 40px;
+    }
+
+    .world_tours,
+    .about,
+    .advantages,
+    .uzb_tours,
+    .our_services{
+        margin-bottom: 60px;
+    }
+
+    .about__img {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width:1280px){
+    .header__menu{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1001;
+        background-color:#fff;
+        width: 400px;
+        height: 100%;
+        flex-direction: column;
+        align-items:flex-start;
+        justify-content: initial;
+        grid-gap: 20px;
+        padding: 20px;
+        transform: translateX(-105%);
+        -webkit-transform: translateX(-105%);
+        -moz-transform: translateX(-105%);
+        -ms-transform: translateX(-105%);
+        -o-transform: translateX(-105%);
+        li{
+            padding: 0;
+        }
+    }
+
+    .header{
+        padding: 20px 0;
+    }
+
+    .header__burger__none {
+        display: block;
+    }
+
+    .header__list{
+        grid-template-columns: 220px 60px;
+        justify-content: space-between;
+    }
+
+    .header__ru__cart__list{
+        display: flex;
+        align-items:center;
+        grid-gap: 15px;
+        justify-content: space-between;
+    }
+
+    .header__menu li .active::after {
+        display: none;
+    }
+
+    .header__menu li:hover > a::after {
+        display: none;
+    }
+
+    .slider__title__h1 {
+        font-size: 50px;
+    }
+
+    .world_tours__title__h2 {
+        font-size: 32px;
+    }
+
+    .world_tours__title__h3, 
+    .contacts__link,
+    .our_services__title__h3{
+        font-size: 20px;
+    }
+
+    .uzb_tours__title__h3{
+        font-size: 18px;
+    }
+
+    .contacts__title__h2 {
+        font-size: 22px;
+    }
+
+    .contacts__link, .our_services__title__h3 {
+        font-size: 18px;
+        grid-gap: 10px;
+    }
+
+    .contacts__link span {
+        font-size: 24px;
+    }
+
+    .contacts__menu {
+        grid-gap: 20px;
+    }
+
+    .footer {
+        padding-top: 100px;
+    }
+
+    .footer__list{
+        padding-bottom: 40px;
+    }
+
+    .footer__title__h4 {
+        font-size: 14px;
+    }
+
+    .advantages__list,
+    .world_tours__list{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .world_tours__cart{
+        padding: 40px 40px 80px 40px;
+    }
+
+    .world_tours__list,
+    .advantages__list,
+    .uzb_tours__list,
+    .our_services__list,
+    .connect_with__form{
+        margin-top: 20px;
+    }
+
+    .connect_with__input{
+        height: 50px;
+    }
+
+    .connect_with__textarea,
+    .contacts__textarea{
+        height: 100px;
+    }
+
+    .connect_with__cart {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .connect_with {
+        padding: 40px;
+    }
+
+    .connect_with__button{
+        padding: 20px 30px;
+    }
+
+    .advantages{
+        padding: 50px 0;
+    }
+
+    .slider__item {
+        height: 650px !important;
+    }
+
+    .header__menu__link {
+        font-size: 14px;
+    }
+}
+
+@media (max-width:1000px){
+    .contacts__list{
+        grid-template-columns: 1fr;
+    }
+
+    .contacts__map iframe {
+        width: 100%;
+        height: 400px;
+    }
+
+    .slider__title__h1 {
+        font-size: 44px;
+    }
+
+    .world_tours__title__h2 {
+        font-size: 30px;
+    }
+
+    .world_tours__title__h3, .contacts__link, .our_services__title__h3 {
+        font-size: 18px;
+    }
+
+    .contacts__title__h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width:850px){
+    .about__img{
+        margin-left: 0;
+        float: initial;
+        width: 100%;
+    }
+
+    .world_tours__cart{
+        margin-top: -30px;
+    }
+
+    .contacts{
+        margin-bottom: -30px;
+    }
+
+    .footer {
+        padding-top: 70px;
+    }
+
+    .slider__item {
+        height: 550px !important;
+    }
+
+    .slider__cart {
+        width: 60%;
+    }
+
+    .slider__btn__menu .next-btn,
+    .slider__btn__menu .prev-btn{
+        width: 16px;
+        height: 25px;
+    }
+
+    .slider__btn__menu{
+        grid-gap: 20px;
+    }
+
+    .slider__link{
+        padding: 20px 30px;
+    }
+
+    .our_services__list{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:800px){
+    .world_tours__list{
+        grid-template-columns: 1fr;
+    }
+
+    .footer__bottom__lits{
+        justify-content: center;
+        grid-gap: 10px;
+    }
+}
+
+@media (max-width:650px){
+    .header__cart,
+    .slider__cart,
+    .world_tours__cart,
+    .about__cart,
+    .advantages__cart,
+    .our_services__cart,
+    .contacts__cart,
+    .footer__cart,
+    .footer__bottom__lits{
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .world_tours,
+    .about,
+    .advantages,
+    .uzb_tours,
+    .our_services{
+        margin-bottom: 30px;
+    }
+
+    .slider__cart{
+        width: 90%;
+    }
+
+    .header__menu{
+        width: 350px;
+    }
+
+    .slider__title__h1 {
+        font-size: 40px;
+    }
+
+    .world_tours__title__h2 {
+        font-size: 28px;
+    }
+
+    .world_tours__cart {
+        padding: 20px 20px 40px 20px;
+    }
+
+    .contacts__item {
+        padding: 30px 20px;
+    }
+
+    .advantages {
+        padding: 30px 0;
+    }
+
+    .contacts__map iframe {
+        width: 100%;
+        height: 350px;
+    }
+
+    .advantages__list{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:450px){
+    .slider__title__h1 {
+        font-size: 38px;
+    }
+
+    .slider__title__h1 {
+        font-size: 38px;
+    }
+
+    .contacts__map iframe {
+        height: 300px;
+    }
+
+    .our_services__img {
+        width: 100px;
+    }
+
+    .our_services__item{
+        grid-template-columns: 100px auto;
+        grid-gap: 20px;
+    }
+
+    .our_services__img img{
+        width: 60px;
+        height: 60px;
+    }
+
+    .world_tours__title__h2 {
+        font-size: 26px;
+    }
+
+    .header__list{
+        grid-template-columns: 180px 60px;
+        grid-gap: 20px;
+    }
+
+    .header__logo {
+        width: 180px;
+        height: auto;
+    }
+
+    .header__menu {
+        width: 280px;
+    }
+}
