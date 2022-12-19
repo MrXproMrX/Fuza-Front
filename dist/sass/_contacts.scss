@@ -1,0 +1,164 @@
+// contacts start
+
+.contacts_in{
+    position: relative;
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        grid-gap: 200px;
+        margin-bottom: 100px;
+    }
+
+    .contacts__title__h2{
+        color:$blue;
+    }
+
+    &__menu{
+        display: flex;
+        align-items: start;
+        grid-gap: 20px;
+        flex-direction: column;
+    }
+
+    &__link{
+        @include fontAll(24px,700,$link);
+        line-height: 135%;
+        letter-spacing: 0.02em;
+        display: grid;
+        grid-template-columns: 50px auto;
+        align-items: center;
+        grid-gap: 20px;
+        span{
+            @include fiximg(50px,50px,false);
+            img{
+                max-height: 50px;
+                object-position: center;
+            }
+        }
+    }
+
+    &__form{
+        display: flex;
+        grid-gap: 20px;
+        align-items: end;
+        justify-content: end;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    &__input{
+        background-color:rgba(46, 111, 200, 0.1);
+        width: 100%;
+        height: 60px;
+        padding: 10px 30px;
+        border:none;
+        outline: none;
+        @include fontAll(16px,500,$link);
+        line-height: 130%;
+
+        &::placeholder{
+            @include fontAll(16px,500,$link);
+            line-height: 130%;
+        }
+    }
+
+    &__textarea{
+        resize: none;
+        background-color:rgba(46, 111, 200, 0.1);
+        width: 100%;
+        height: 120px;
+        padding: 10px 30px;
+        border:none;
+        outline: none;
+        @include fontAll(16px,500,$link);
+        line-height: 130%;
+
+        &::placeholder{
+            @include fontAll(16px,500,$link);
+            line-height: 130%;
+        }
+    }
+
+    &__button{
+        display: inline-block;
+        @include fontAll(14px,700,$fff);
+        line-height: 100%;
+        position: relative;
+        padding: 20px 30px;
+        background-color:$blue;
+        text-transform: uppercase;
+        border: 2px solid $blue;
+        @extend%transition;
+
+        &:hover{
+            color:$blue;
+            background-color:$fff;
+        }
+    }
+
+    &__map{
+        width: 100%;
+        height: 700px;
+        margin-bottom: -60px;
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+// contacts end
+
+@media (max-width:1200px){
+    .contacts_in__list{
+        grid-gap: 100px;
+    }
+
+    .contacts_in__map {
+        height: 600px;
+    }
+
+    .contacts_in__link span {
+        height: 40px;
+        width: 40px;
+    }
+
+    .contacts_in__link{
+        grid-template-columns: 40px auto;
+    }
+}
+
+@media (max-width:1050px){
+    .contacts_in__list{
+        grid-gap: 50px;
+    }
+
+    .contacts_in__map {
+        height: 500px;
+    }
+}
+
+@media (max-width:900px){
+    .contacts_in__list{
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+    }
+
+    .contacts_in__map {
+        height: 400px;
+    }
+}
+
+@media (max-width:850px){
+    .contacts_in__map{
+        margin-bottom: -30px;
+    }
+}
+
+@media (max-width:650px){
+    .contacts_in__map {
+        height: 300px;
+    }
+}

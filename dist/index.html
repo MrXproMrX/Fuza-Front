@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <link rel="apple-touch-icon" sizes="180x180" href="foto/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="foto/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="foto/favicon/favicon-16x16.png">
     <link rel="manifest" href="foto/favicon/site.webmanifest">
     <link rel="mask-icon" href="foto/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/slick.css">
@@ -31,8 +31,8 @@
                     <div class="header__list">
 
                         <div class="header__logo">
-                            <a href="#!" onclick="slowScroll('#header')">
-                                <img src="foto/logo.svg" alt="logo">
+                            <a href="index.html" onclick="slowScroll('#header')">
+                                <img src="foto/logo.png" alt="logo">
                             </a>
                         </div>
 
@@ -42,7 +42,7 @@
                             </li>
 
                             <li>
-                                <a href="#!" onclick="slowScroll('#about')" class="header__menu__link">Biz haqimizda</a>
+                                <a href="about.html" onclick="slowScroll('#about')" class="header__menu__link">Biz haqimizda</a>
                             </li>
 
                             <li>
@@ -58,7 +58,7 @@
                             </li>
 
                             <li>
-                                <a href="#!" onclick="slowScroll('#contacts')" class="header__menu__link">kontaktlar</a>
+                                <a href="Contacts.html" onclick="slowScroll('#contacts')" class="header__menu__link">kontaktlar</a>
                             </li>
                         </ul>
 
@@ -112,7 +112,7 @@
                     <div class="slider__cart">
                         <h1 class="slider__title__h1">Umra</h1>
                         <div class="slider__text">Haj va Umra ziyorati chog‘ida agentligimiz ushbu safar uchun eng muhim ekskursiyalarni Madinada va Makkada shaharlarida tashkil qiladi.</div>
-                        <a href="#modal1" class="slider__link modal-trigger">Ariza qoldiring</a>
+                        <a href="#!" class="slider__link">Подробнее</a>
 
                         <div class="btn-wrap slider__btn__menu">
                             <button class="prev-btn"></button>
@@ -127,7 +127,7 @@
                     <div class="slider__cart">
                         <h1 class="slider__title__h1">Dubay</h1>
                         <div class="slider__text">Dunyoning eng boy va eng ko‘rkam shaharlaridan biri bo‘lib, bizning kompaniya sizga ushbu Turda xohishingizga qarab kunlarni belgilagan holda eng nufuzli mehmonxonalarda dam olish, sohil bo‘yida sayr va go‘zal shahar uzra sayohatni taʼminlaydi.</div>
-                        <a href="#modal1" class="slider__link modal-trigger">Ariza qoldiring</a>
+                        <a href="#!" class="slider__link">Подробнее</a>
 
                         <div class="btn-wrap slider__btn__menu">
                             <button class="prev-btn"></button>
@@ -146,13 +146,24 @@
 
     <div class="connect_with modal" id="modal1">
         <div class="connect_with__cart">
-            <h2 class="world_tours__title__h2">Biz bilan bog'laning</h2>
+            <h2 class="world_tours__title__h2">Бронировать</h2>
 
             <form action="#!" class="connect_with__form">
-                <input type="text" placeholder="Sizning ismingiz" class="connect_with__input">
-                <input type="tel" placeholder="Telefon raqami" class="connect_with__input">
-                <textarea placeholder="Izoh" class="connect_with__textarea"></textarea>
-                <button type="submit" class="connect_with__button">Ariza yuborish</button>
+                <input type="text" placeholder="Ваше имя" class="connect_with__input">
+                <input type="tel" name="phone" placeholder="Номер телефона" class="connect_with__input">
+                <input type="date" placeholder="Дата" class="connect_with__input">
+                <button type="submit" class="connect_with__button">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="connect_with modal" id="modal2">
+        <div class="connect_with__cart">
+            <h2 class="world_tours__title__h2">Купить</h2>
+
+            <form action="#!" class="connect_with__form">
+                <input type="tel" name="phone" placeholder="Номер телефона" class="connect_with__input">
+                <button type="submit" class="connect_with__button">Отправить</button>
             </form>
         </div>
     </div>
@@ -172,63 +183,109 @@
                     <div class="world_tours__item">
                         <div class="world_tours__img">
                             <img src="foto/world_tours_1.png" alt="world_tours">
-                            <a href="#modal1" class="world_tours__link modal-trigger">turni sotib oling</a>
+                            <a href="trips.html" class="world_tours__link">Подробнее</a>
                         </div>
-                        <h3 class="world_tours__title__h3">Muqaddas Umra va Haj safari</h3>
+
+                        <div class="world_tours__item__cart">
+                            <h3 class="world_tours__title__h3">Muqaddas Umra va Haj safari</h3>
+                            
+                            <div class="world_tours__list__cart">
+                                <a href="#modal1" class="world_tours__list__link1 modal-trigger">Бронировать</a>
+                                <a href="#modal2" class="world_tours__list__link2 modal-trigger">Купить</a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="world_tours__item">
                         <div class="world_tours__img">
                             <img src="foto/world_tours_6.jpg" alt="world_tours">
-                            <a href="#modal1" class="world_tours__link modal-trigger">turni sotib oling</a>
+                            <a href="trips.html" class="world_tours__link">Подробнее</a>
                         </div>
-                        <h3 class="world_tours__title__h3">Sharq ertaklarining zamonaviy dunyosi + dengiz bo'yidagi bayramlar</h3>
+                        <div class="world_tours__item__cart">
+                            <h3 class="world_tours__title__h3">Sharq ertaklarining zamonaviy dunyosi + dengiz bo'yidagi bayramlar</h3>
+                            
+                            <div class="world_tours__list__cart">
+                                <a href="#modal1" class="world_tours__list__link1 modal-trigger">Бронировать</a>
+                                <a href="#modal2" class="world_tours__list__link2 modal-trigger">Купить</a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="world_tours__item">
                         <div class="world_tours__img">
                             <img src="foto/world_tours_7.jpg" alt="world_tours">
-                            <a href="#modal1" class="world_tours__link modal-trigger">turni sotib oling</a>
+                            <a href="trips.html" class="world_tours__link">Подробнее</a>
                         </div>
-                        <h3 class="world_tours__title__h3">
-                            Buyuk asr.<br>
-                            Qadimgi mo''jizalar - Istanbul.<br>
-                            Usmonli imperiyasining merosi
-                        </h3>
+                        <div class="world_tours__item__cart">
+                            <h3 class="world_tours__title__h3">
+                                Buyuk asr.<br>
+                                Qadimgi mo''jizalar - Istanbul.<br>
+                                Usmonli imperiyasining merosi
+                            </h3>
+
+                            <div class="world_tours__list__cart">
+                                <a href="#modal1" class="world_tours__list__link1 modal-trigger">Бронировать</a>
+                                <a href="#modal2" class="world_tours__list__link2 modal-trigger">Купить</a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="world_tours__item">
                         <div class="world_tours__img">
                             <img src="foto/world_tours_8.png" alt="world_tours">
-                            <a href="#modal1" class="world_tours__link modal-trigger">turni sotib oling</a>
+                            <a href="trips.html" class="world_tours__link">Подробнее</a>
                         </div>
-                        <h3 class="world_tours__title__h3">
-                            Tailand va Malayziyaga sayohat
-                            ,, Sirli Osiyo''.<br>
-                            Klassik Malayziyaga sayohat.<br>
-                            Singapur + Langkavi + Kuala-Lumpur
-                        </h3>
+
+                        <div class="world_tours__item__cart">
+                            <h3 class="world_tours__title__h3">
+                                Tailand va Malayziyaga sayohat
+                                ,, Sirli Osiyo''.<br>
+                                Klassik Malayziyaga sayohat.<br>
+                                Singapur + Langkavi + Kuala-Lumpur
+                            </h3>
+
+                            <div class="world_tours__list__cart">
+                                <a href="#modal1" class="world_tours__list__link1 modal-trigger">Бронировать</a>
+                                <a href="#modal2" class="world_tours__list__link2 modal-trigger">Купить</a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="world_tours__item">
                         <div class="world_tours__img">
                             <img src="foto/world_tours_3.png" alt="world_tours">
-                            <a href="#modal1" class="world_tours__link modal-trigger">turni sotib oling</a>
+                            <a href="trips.html" class="world_tours__link">Подробнее</a>
                         </div>
-                        <h3 class="world_tours__title__h3">
-                            Misr marvaridlari.<br>
-                            Sharm al-Shayxda dam olish va ekskursiyalar!
-                        </h3>
+
+                        <div class="world_tours__item__cart">
+                            <h3 class="world_tours__title__h3">
+                                Misr marvaridlari.<br>
+                                Sharm al-Shayxda dam olish va ekskursiyalar!
+                            </h3>
+
+                            <div class="world_tours__list__cart">
+                                <a href="#modal1" class="world_tours__list__link1 modal-trigger">Бронировать</a>
+                                <a href="#modal2" class="world_tours__list__link2 modal-trigger">Купить</a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="world_tours__item">
                         <div class="world_tours__img">
                             <img src="foto/world_tours_9.jpg" alt="world_tours">
-                            <a href="#modal1" class="world_tours__link modal-trigger">turni sotib oling</a>
+                            <a href="trips.html" class="world_tours__link">Подробнее</a>
                         </div>
-                        <h3 class="world_tours__title__h3">
-                            Kruiz, Fors ko'rfazining marvaridlari''
-                        </h3>
+
+                        <div class="world_tours__item__cart">
+                            <h3 class="world_tours__title__h3">
+                                Kruiz, Fors ko'rfazining marvaridlari''
+                            </h3>
+
+                            <div class="world_tours__list__cart">
+                                <a href="#modal1" class="world_tours__list__link1 modal-trigger">Бронировать</a>
+                                <a href="#modal2" class="world_tours__list__link2 modal-trigger">Купить</a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -258,7 +315,7 @@
                         </p>
                     </div>
 
-                    <a href="#modal1" class="about__link modal-trigger">Ariza qoldiring</a>
+                    <a href="about.html" class="about__link">Подробнее</a>
                 </div>
             </div>
         </section>
@@ -507,15 +564,19 @@
                         <ul class="contacts__menu">
                             <li>
                                 <a class="contacts__link">
-                                    <span><i class="fas fa-map-marker-alt"></i></span> 
+                                    <span>
+                                        <img src="foto/icons/map.svg" alt="icons">
+                                    </span> 
                                     O'zbekiston, Qoraqalpog'iston
-                                    Amudaryo Mangit ko'chasi qipchoq b / n
+                                    Amudaryo Mangit ko'chasi qipchoq b/n
                                 </a>
                             </li>
 
                             <li>
                                 <a href="tel:+99 833 905 88 88" class="contacts__link">
-                                    <span><i class="fas fa-phone-alt"></i></span> 
+                                    <span>
+                                        <img src="foto/icons/tel.svg" alt="icons">
+                                    </span>  
                                     +99 833 905 88 88
                                 </a>
                             </li>
@@ -550,8 +611,8 @@
                 <div class="footer__cart">
                     <div class="footer__list">
                         <div class="footer__logo">
-                            <a href="#!" onclick="slowScroll('#header')">
-                                <img src="foto/logo_footer.svg" alt="footer">
+                            <a href="index.html" onclick="slowScroll('#header')">
+                                <img src="foto/logo_footer.png" alt="footer">
                             </a>
                         </div>
 
@@ -586,11 +647,11 @@
     <!-- footer end -->
     
     <script src="js/jquery-3.6.1.min.js"></script>
-    <script src="js/materialize.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/owl.carousel.js"></script>
-    <script src="js/mar_ru.js"></script>
     <script src="js/slic.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/mar_ru.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

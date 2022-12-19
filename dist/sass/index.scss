@@ -1,6 +1,8 @@
 @import './files/color';
 @import './files/fonts';
 @import './files/mixins';
+@import '_about';
+@import '_contacts';
 
 body{
     font-family: 'Montserrat', sans-serif;
@@ -45,7 +47,7 @@ body{
     }
 
     &__logo{
-        @include fiximg(220px,65px,true);
+        @include fiximg(220px,65px,false);
         img{
             max-height: 65px;
             max-width: 220px;
@@ -241,9 +243,16 @@ body{
         @include fontAll(12px,700,$blue);
         line-height: 100%;
         position: relative;
-        padding: 25px 30px;
+        padding: 22px 30px;
         background-color:$fff;
         text-transform: uppercase;
+        border: 2px solid #FFFFFF;
+        @extend%transition;
+
+        &:hover{
+            color:$fff;
+            background-color:transparent;
+        }
     }
 
     &__text{
@@ -330,12 +339,12 @@ body{
 
     &__form{
         display: flex;
-        align-items:center;
+        align-items: flex-end;
         width: 100%;
         flex-direction: column;
         grid-gap: 30px;
         margin-top: 30px;
-        justify-content: center;
+        justify-content: end;
     }
 
     &__input{
@@ -354,31 +363,21 @@ body{
         }
     }
 
-    &__textarea{
-        background-color:rgba(255, 255, 255, 0.2);
-        width: 100%;
-        height: 120px;
-        resize: none;
-        padding: 10px 30px;
-        border:none;
-        outline: none;
-        @include fontAll(16px,500,$fff);
-        line-height: 130%;
-
-        &::placeholder{
-            @include fontAll(16px,500,$fff);
-            line-height: 130%;
-        }
-    }
-
     &__button{
         display: inline-block;
         @include fontAll(14px,700,$blue);
         line-height: 100%;
         position: relative;
-        padding: 25px 30px;
+        padding: 20px 30px;
         background-color:$fff;
         text-transform: uppercase;
+        border: 2px solid #FFFFFF;
+        @extend%transition;
+
+        &:hover{
+            color:$fff;
+            background-color:transparent;
+        }
     }
 }
 
@@ -481,9 +480,12 @@ body{
         text-transform: uppercase;
         letter-spacing: 0.02em;
         position: relative;
-        padding-left: 40px;
         padding-top: 20px;
+    }
 
+    &__item__cart{
+        position: relative;
+        padding-left: 40px;
         &::after{
             content: "";
             display: block;
@@ -493,6 +495,51 @@ body{
             position: absolute;
             top: 0;
             left: 0;
+        }
+    }
+
+    &__list__cart{
+        display: flex;
+        align-items:flex-start;
+        justify-content: space-between;
+        grid-gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+    
+    &__list__link1{
+        border: 2px solid $fff;
+        padding: 20px 25px;
+        background-color:$blue;
+        @include fontAll(12px,700,$fff);
+        line-height: 100%;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        display: inline-block;
+        text-align: center;
+        @extend%transition;
+
+        &:hover{
+            color:$blue;
+            background-color:$fff;
+        }
+    }
+
+    &__list__link2{
+        border: 2px solid $fff;
+        padding: 20px 25px;
+        background-color:$fff;
+        @include fontAll(12px,700,$blue);
+        line-height: 100%;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        display: inline-block;
+        text-align: center;
+        @extend%transition;
+
+        &:hover{
+            color:$fff;
+            background-color:$blue;
         }
     }
 }
@@ -529,9 +576,19 @@ body{
 
     &__text{
         @include fontAll(16px,400,$text);
-        line-height: 135%;
+        line-height: 150%;
         text-align: justify;
         margin-top: 10px;
+
+        max-height: 360px;
+        -webkit-line-clamp: 15;
+        position: relative;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+
         h1,h2,h3,h4,h5,h6,em,strong{
             font-size: 110%;
             color:$title;
@@ -547,6 +604,10 @@ body{
             font-style: normal;
             display: inline-block;
         }
+
+        img{
+            display: none;
+        }
     }
 
     &__link{
@@ -557,7 +618,12 @@ body{
         padding: 25px 30px;
         background-color:#F3F7FC;
         text-transform: uppercase;
-        margin-top: 20px; 
+        margin-top: 20px;
+        @extend%transition;
+
+        &:hover{
+            background-color:#e3efff;
+        }
     }
 }
 
@@ -898,11 +964,16 @@ body{
     &__link{
         @include fontAll(24px,700,$fff);
         line-height: 130%;
-        display: flex;
+        display: grid;
+        grid-template-columns: 50px auto;
         grid-gap: 20px;
         align-items:center;
         span{
-            font-size: 30px;
+            @include fiximg(50px,50px,false);
+            img{
+                max-height: 50px;
+                object-position:center top;
+            }
         }
     }
 
@@ -963,6 +1034,13 @@ body{
         padding: 20px 30px;
         background-color:$fff;
         text-transform: uppercase;
+        border: 2px solid #FFFFFF;
+        @extend%transition;
+
+        &:hover{
+            color:$fff;
+            background-color:transparent;
+        }
     }
 
     &__list{
@@ -1001,7 +1079,7 @@ body{
     }
 
     &__logo{
-        @include fiximg(220px,65px,true);
+        @include fiximg(220px,65px,false);
         img{
             max-height: 65px;
             object-position: center center;
@@ -1031,6 +1109,11 @@ body{
         -moz-border-radius:50px;
         -ms-border-radius:50px;
         -o-border-radius:50px;
+        @extend%transition;
+
+        &:hover{
+            background-color:$blue;
+        }
     }
 
     &__bottom{
@@ -1066,7 +1149,10 @@ body{
     .our_services__cart,
     .contacts__cart,
     .footer__cart,
-    .footer__bottom__lits{
+    .footer__bottom__lits,
+    .about_content__cart,
+    .about_in__cart,
+    .contacts_in__cart{
         margin-left: 60px;
         margin-right: 60px;
     }
@@ -1104,7 +1190,8 @@ body{
 
     .world_tours__title__h3,
     .contacts__link,
-    .our_services__title__h3{
+    .our_services__title__h3,
+    .contacts_in__link{
         font-size: 22px;
     }
 
@@ -1132,7 +1219,10 @@ body{
     .about,
     .advantages,
     .uzb_tours,
-    .our_services{
+    .our_services,
+    .about_in,
+    .about_content,
+    .contacts_in__list{
         margin-bottom: 60px;
     }
 
@@ -1211,17 +1301,24 @@ body{
         font-size: 18px;
     }
 
-    .contacts__title__h2 {
+    .contacts__title__h2{
         font-size: 22px;
     }
 
-    .contacts__link, .our_services__title__h3 {
+    .contacts__link, 
+    .our_services__title__h3,
+    .contacts_in__link{
         font-size: 18px;
         grid-gap: 10px;
     }
 
     .contacts__link span {
-        font-size: 24px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .contacts__link{
+        grid-template-columns: 40px auto;
     }
 
     .contacts__menu {
@@ -1356,8 +1453,14 @@ body{
         grid-gap: 20px;
     }
 
-    .slider__link{
+    .slider__link,
+    .about__link{
         padding: 20px 30px;
+    }
+
+    .world_tours__list__link1,
+    .world_tours__list__link2{
+        padding: 20px 25px;
     }
 
     .our_services__list{
@@ -1385,7 +1488,10 @@ body{
     .our_services__cart,
     .contacts__cart,
     .footer__cart,
-    .footer__bottom__lits{
+    .footer__bottom__lits,
+    .about_content__cart,
+    .about_in__cart,
+    .contacts_in__cart{
         margin-left: 30px;
         margin-right: 30px;
     }
@@ -1394,8 +1500,16 @@ body{
     .about,
     .advantages,
     .uzb_tours,
-    .our_services{
+    .our_services,
+    .about_in,
+    .about_content,
+    .contacts_in__list{
         margin-bottom: 30px;
+    }
+
+    .about_content__menu{
+        margin-top: 30px;
+        grid-gap: 20px;
     }
 
     .slider__cart{
@@ -1434,6 +1548,10 @@ body{
     .advantages__list{
         grid-template-columns: 1fr;
     }
+
+    .world_tours__item__cart{
+        padding-left: 30px;
+    }
 }
 
 @media (max-width:450px){
@@ -1447,6 +1565,10 @@ body{
 
     .contacts__map iframe {
         height: 300px;
+    }
+
+    .connect_with {
+        padding: 30px;
     }
 
     .our_services__img {
