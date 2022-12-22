@@ -483,6 +483,14 @@ body{
         padding-top: 20px;
     }
 
+    &__money__title{
+        @include fontAll(24px,700,$fff);
+        line-height: 130%;
+        letter-spacing: 0.02em;
+        position: relative;
+        padding-top: 10px;
+    }
+
     &__item__cart{
         position: relative;
         padding-left: 40px;
@@ -1191,7 +1199,8 @@ body{
     .world_tours__title__h3,
     .contacts__link,
     .our_services__title__h3,
-    .contacts_in__link{
+    .contacts_in__link,
+    .world_tours__money__title{
         font-size: 22px;
     }
 
@@ -1293,7 +1302,8 @@ body{
 
     .world_tours__title__h3, 
     .contacts__link,
-    .our_services__title__h3{
+    .our_services__title__h3,
+    .world_tours__money__title{
         font-size: 20px;
     }
 
@@ -1407,7 +1417,10 @@ body{
         font-size: 30px;
     }
 
-    .world_tours__title__h3, .contacts__link, .our_services__title__h3 {
+    .world_tours__title__h3, 
+    .contacts__link, 
+    .our_services__title__h3,
+    .world_tours__money__title{
         font-size: 18px;
     }
 

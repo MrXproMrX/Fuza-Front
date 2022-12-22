@@ -881,6 +881,15 @@ body {
   position: relative;
   padding-top: 20px;
 }
+.world_tours__money__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding-top: 10px;
+}
 .world_tours__item__cart {
   position: relative;
   padding-left: 40px;
@@ -1543,7 +1552,8 @@ body {
   .world_tours__title__h3,
 .contacts__link,
 .our_services__title__h3,
-.contacts_in__link {
+.contacts_in__link,
+.world_tours__money__title {
     font-size: 22px;
   }
   .uzb_tours__list .owl-next {
@@ -1628,7 +1638,8 @@ body {
   }
   .world_tours__title__h3,
 .contacts__link,
-.our_services__title__h3 {
+.our_services__title__h3,
+.world_tours__money__title {
     font-size: 20px;
   }
   .uzb_tours__title__h3 {
@@ -1717,7 +1728,10 @@ body {
   .world_tours__title__h2 {
     font-size: 30px;
   }
-  .world_tours__title__h3, .contacts__link, .our_services__title__h3 {
+  .world_tours__title__h3,
+.contacts__link,
+.our_services__title__h3,
+.world_tours__money__title {
     font-size: 18px;
   }
   .contacts__title__h2 {
